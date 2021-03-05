@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{66CFC955-B8C4-498E-B4D6-1AD7EF81BDB5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TracerTestSuite</RootNamespace>
+    <AssemblyName>TracerTestSuite</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <Externalconsole>true</Externalconsole>
+    <GenerateTailCalls>true</GenerateTailCalls>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\4.0\Framework\v4.0\Microsoft.FSharp.Targets" />
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Util.fs" />
+    <Compile Include="ImplicitSurfaces.fs" />
+    <Compile Include="Shapes.fs" />
+    <Compile Include="Light.fs" />
+    <Compile Include="AffineTransformations.fs" />
+    <Compile Include="Meshes.fs" />
+    <Compile Include="Texture.fs" />
+    <Compile Include="CSG.fs" />
+    <Compile Include="ThinLens.fs" />
+    <Compile Include="Program.fs" />
+    <Content Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="FSharp.Core">
+      <HintPath>..\packages\FSharp.Core.4.1.2\lib\net45\FSharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Drawing" />
+    <ProjectReference Include="..\RayTracer.Core\RayTracer.Core.fsproj">
+      <Name>RayTracer.Core</Name>
+      <Project>{24e4e142-fc1b-4d97-8516-e8b3e25a3f2e}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\RayTracer.Entities\RayTracer.Entities.fsproj">
+      <Name>RayTracer.Entities</Name>
+      <Project>{6d8d0910-0380-44b9-acbd-1ec9c55c5111}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\RayTracer.Shapes\RayTracer.Shapes.fsproj">
+      <Name>RayTracer.Shapes</Name>
+      <Project>{f33c5447-59f6-42b6-b3f9-ee77932601e6}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\RayTracer.TriangleParser\RayTracer.TriangleParser.fsproj">
+      <Name>RayTracer.TriangleParser</Name>
+      <Project>{2bf9686e-9a63-426b-bb62-a5ba06089f1c}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\RayTracerAPI\RayTracer.API.fsproj">
+      <Name>RayTracer.API</Name>
+      <Project>{cd006a94-6de9-4b63-9ee1-086ad1649e6e}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
